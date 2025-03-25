@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'motion/react';
-import { AnimatePresence } from 'motion/react';
 
 import React from 'react';
 

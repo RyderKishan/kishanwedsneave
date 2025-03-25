@@ -11,11 +11,13 @@ const pinyonScript = Pinyon_Script({
 
 const roboto = Roboto({
   variable: '--font-roboto',
+  subsets: ['latin'],
   weight: '100',
 });
 
 const openSans = Open_Sans({
   variable: '--font-open-sans',
+  subsets: ['latin'],
   weight: '300',
 });
 
