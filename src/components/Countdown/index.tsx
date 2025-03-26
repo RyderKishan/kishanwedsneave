@@ -1,6 +1,11 @@
 'use client';
 
-import { motion, TargetAndTransition } from 'motion/react';
+import {
+  AnimatePresence,
+  motion,
+  TargetAndTransition,
+  Variants,
+} from 'motion/react';
 import React, { useState, useEffect } from 'react';
 
 interface CountdownProps {
@@ -62,19 +67,69 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
     animate,
   };
 
+  const modalVariants: Variants = {
+    initial: { opacity: 0, y: 10 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: -10 },
+  };
+
   return (
     <div className="flex gap-4">
       <motion.div {...commonProps} transition={{ delay: 0.2, duration: 1 }}>
-        {`${timeLeft.days} D`}
+        <AnimatePresence mode="wait">
+          <motion.span
+            variants={modalVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            key={`${timeLeft.days}`}
+          >
+            {timeLeft.days}
+          </motion.span>
+        </AnimatePresence>
+        <span className="ml-0.5">D</span>
       </motion.div>
       <motion.div {...commonProps} transition={{ delay: 0.4, duration: 1 }}>
-        {`${timeLeft.hours} H`}
+        <AnimatePresence mode="wait">
+          <motion.span
+            variants={modalVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            key={`${timeLeft.days}-${timeLeft.hours}`}
+          >
+            {timeLeft.hours}
+          </motion.span>
+        </AnimatePresence>
+        <span className="ml-0.5">H</span>
       </motion.div>
       <motion.div {...commonProps} transition={{ delay: 0.6, duration: 1 }}>
-        {`${timeLeft.minutes} M`}
+        <AnimatePresence mode="wait">
+          <motion.span
+            variants={modalVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            key={`${timeLeft.hours}-${timeLeft.minutes}`}
+          >
+            {timeLeft.minutes}
+          </motion.span>
+        </AnimatePresence>
+        <span className="ml-0.5">M</span>
       </motion.div>
       <motion.div {...commonProps} transition={{ delay: 0.8, duration: 1 }}>
-        {`${timeLeft.seconds} S`}
+        <AnimatePresence mode="wait">
+          <motion.span
+            variants={modalVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            key={`${timeLeft.minutes}-${timeLeft.seconds}`}
+          >
+            {timeLeft.seconds}
+          </motion.span>
+        </AnimatePresence>
+        <span className="ml-0.5">S</span>
       </motion.div>
     </div>
   );
