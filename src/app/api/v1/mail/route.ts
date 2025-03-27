@@ -1,4 +1,3 @@
-import { getRsvpHtml } from '@/helpers';
 import { decode, formatResponse, getRequestData } from '@/utils';
 import Mailgun from 'mailgun.js';
 
@@ -34,24 +33,23 @@ export async function POST(request: Request) {
       message: 'Invalid Headers',
     });
   }
-  const body = await getRequestData<{ data: string }>(request);
-  if (!body?.data) {
+  const body = await getRequestData<{ html: string; subject?: string }>(
+    request,
+  );
+  if (!body?.html) {
     return formatResponse(400, {
       status: 'ERROR',
       message: 'Invalid Request Body',
     });
   }
 
-  const decodedData = decode(body.data);
-  const data = JSON.parse(decodedData);
-
-  const html = getRsvpHtml(data);
+  const html = body?.html ? decode(body.html) : '';
 
   try {
     const response = await mg.messages.create(MAILGUN_DOMAIN, {
       from: `Wedding Bot <mailgun@${MAILGUN_DOMAIN}>`,
       to: [MAIL_TO],
-      subject: 'RSVP Request',
+      subject: body?.subject ?? 'RSVP Request',
       html: html ?? '',
     });
     return formatResponse(200, response);

@@ -11,6 +11,7 @@ import * as yup from 'yup';
 import axios from 'axios';
 import { RsvpFormDataType } from '@/types';
 import { encode } from '@/utils';
+import { getRsvpHtml } from '@/helpers';
 
 const phoneRegExp =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -49,11 +50,13 @@ const RsvpForm: React.FC = () => {
   });
 
   const onSubmit: SubmitHandler<RsvpFormDataType> = (data) => {
+    const html = getRsvpHtml(data);
+
     if (process.env.NODE_ENV === 'production') {
       axios
         .post(
           '/api/v1/mail',
-          { data: encode(JSON.stringify(data)) },
+          { html: encode(html), subject: 'RSVP Request' },
           {
             headers: {
               'Access-Control-Allow-Origin': '*',

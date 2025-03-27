@@ -1,22 +1,10 @@
 'use client';
 
 import React from 'react';
-import Mailgun from 'mailgun.js';
 import { XCustomDataType } from '@/types';
 import { getVisitHtml } from '@/helpers';
 import axios from 'axios';
-
-const {
-  MAILGUN_DOMAIN = 'MAILGUN_DOMAIN',
-  MAILGUN_AUTH = 'MAILGUN_AUTH',
-  MAIL_TO = 'MAIL_TO',
-} = process.env;
-
-const mailgun = new Mailgun(FormData);
-const mg = mailgun.client({
-  username: 'api',
-  key: MAILGUN_AUTH,
-});
+import { encode } from '@/utils';
 
 type ProviderProps = {
   xCustomData: XCustomDataType;
@@ -33,18 +21,27 @@ const Provider: React.FC<ProviderProps> = ({ xCustomData }) => {
       return;
     const html = getVisitHtml(xCustomData);
     if (process.env.NODE_ENV === 'production') {
-      mg.messages
-        .create(MAILGUN_DOMAIN, {
-          from: `Wedding Bot <mailgun@${MAILGUN_DOMAIN}>`,
-          to: [MAIL_TO],
-          subject: xCustomData.source
-            ? `Invitation viewed by ${xCustomData.source}`
-            : 'Invitation viewed',
-          html,
-        })
+      axios
+        .post(
+          '/api/v1/mail',
+          {
+            html: encode(html),
+            subject: xCustomData.source
+              ? `Invitation viewed by ${xCustomData.source}`
+              : 'Invitation viewed',
+          },
+          {
+            headers: {
+              'Access-Control-Allow-Origin': '*',
+              'Access-Control-Allow-Credentials': true,
+              'x-api-key': encode(`${new Date().valueOf()}`),
+            },
+          },
+        )
         .then(() => {
           localStorage.setItem('kwn:emailSent', 'true');
-        });
+        })
+        .catch(() => {});
     } else {
       axios
         .post(
