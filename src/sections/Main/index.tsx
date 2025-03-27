@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const Main: React.FC = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
 
   return (
     <motion.section

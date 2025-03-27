@@ -1,0 +1,8 @@
+.profile-image {
+  mask-image: radial-gradient(
+    closest-side,
+    var(--foreground) 10%,
+    var(--background) 75%,
+    transparent
+  );
+}

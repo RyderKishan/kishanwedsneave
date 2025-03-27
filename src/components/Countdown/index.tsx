@@ -8,6 +8,38 @@ import {
 } from 'motion/react';
 import React, { useState, useEffect } from 'react';
 
+// const DELAY = 0.2;
+const DURATION = 0.3;
+
+const initial: TargetAndTransition = {
+  opacity: 0,
+  filter: 'blur(20px)',
+};
+
+const animate: TargetAndTransition = {
+  opacity: 1,
+  filter: 'blur(0px)',
+};
+
+const commonProps = {
+  suppressHydrationWarning: true,
+  initial,
+  className:
+    'w-12 h-12 flex justify-center font-extrabold items-center rounded-xl bg-(--color-foreground) text-(--color-background)',
+  animate,
+};
+
+const modalVariants: Variants = {
+  initial: {
+    opacity: 0,
+    y: 10,
+    scale: 0.8,
+    transition: { duration: DURATION },
+  },
+  animate: { opacity: 1, y: 0, scale: 1, transition: { duration: DURATION } },
+  exit: { opacity: 0, y: -10, scale: 0.8, transition: { duration: DURATION } },
+};
+
 interface CountdownProps {
   targetDate: string;
 }
@@ -41,37 +73,13 @@ const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
         });
         clearInterval(timer);
       }
-    }, 1000);
+    }, 10);
     return () => clearInterval(timer);
   }, [targetDate]);
 
   if (!timeLeft) {
     return <div className="text-2xl">Happening now!</div>;
   }
-
-  const initial: TargetAndTransition = {
-    opacity: 0,
-    filter: 'blur(20px)',
-  };
-
-  const animate: TargetAndTransition = {
-    opacity: 1,
-    filter: 'blur(0px)',
-  };
-
-  const commonProps = {
-    suppressHydrationWarning: true,
-    initial,
-    className:
-      'w-12 h-12 flex justify-center font-extrabold items-center rounded-xl bg-(--color-foreground) text-(--color-background)',
-    animate,
-  };
-
-  const modalVariants: Variants = {
-    initial: { opacity: 0, y: 10 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: -10 },
-  };
 
   return (
     <div className="flex gap-4">

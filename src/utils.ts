@@ -29,3 +29,18 @@ export const throttle = (func: () => void, limit: number) => {
     }
   };
 };
+
+export const formatResponse = (
+  status: number,
+  data: any,
+  cache?: boolean,
+): Response => {
+  return new Response(JSON.stringify(data), {
+    headers: {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      ...(cache ? ({ 'Cache-Control': 'public, max-age=3600' } as any) : {}),
+    },
+    status,
+  });
+};
