@@ -56,7 +56,7 @@ const RsvpForm: React.FC = () => {
       axios
         .post(
           '/api/v1/mail',
-          { html: encode(html), subject: 'RSVP Request' },
+          { html: encode(html), subject: encode('RSVP Request') },
           {
             headers: {
               'Access-Control-Allow-Origin': '*',

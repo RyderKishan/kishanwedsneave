@@ -49,7 +49,7 @@ export async function POST(request: Request) {
     const response = await mg.messages.create(MAILGUN_DOMAIN, {
       from: `Wedding Bot <mailgun@${MAILGUN_DOMAIN}>`,
       to: [MAIL_TO],
-      subject: body?.subject ?? 'RSVP Request',
+      subject: body?.subject ? decode(body?.subject) : 'RSVP Request',
       html: html ?? '',
     });
     return formatResponse(200, response);

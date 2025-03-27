@@ -26,9 +26,11 @@ const Provider: React.FC<ProviderProps> = ({ xCustomData }) => {
           '/api/v1/mail',
           {
             html: encode(html),
-            subject: xCustomData.source
-              ? `Invitation viewed by ${xCustomData.source}`
-              : 'Invitation viewed',
+            subject: encode(
+              xCustomData.source
+                ? `Invitation viewed by ${xCustomData.source}`
+                : 'Invitation viewed',
+            ),
           },
           {
             headers: {
