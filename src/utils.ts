@@ -44,3 +44,41 @@ export const formatResponse = (
     status,
   });
 };
+
+export const getRequestData = async <T>(request: Request) => {
+  const readableStream = request.body as ReadableStream;
+  const reader = readableStream.getReader();
+  const decoder = new TextDecoder();
+  let result = '';
+  let done = false;
+
+  while (!done) {
+    const { value, done: doneReading } = await reader.read();
+    done = doneReading;
+    result += decoder.decode(value, { stream: true });
+  }
+  const body = JSON.parse(result) as T;
+  return body;
+};
+
+export const decode = (base64EncodedString: string): string => {
+  try {
+    const buff = Buffer.from(base64EncodedString, 'base64');
+    const decodedString = buff.toString('utf-8');
+    return decodedString;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (e) {
+    return '';
+  }
+};
+
+export const encode = (decodedString: string): string => {
+  try {
+    const buff = Buffer.from(decodedString, 'utf-8');
+    const base64EncodedString = buff.toString('base64');
+    return base64EncodedString;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (e) {
+    return '';
+  }
+};

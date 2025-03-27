@@ -6,6 +6,7 @@ import DateAndTime from '@/components/DateAndTime';
 import React, { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import Image from 'next/image';
+import RsvpForm from '@/components/RsvpForm';
 
 const Main: React.FC = () => {
   const ref = useRef(null);
@@ -42,11 +43,12 @@ const Main: React.FC = () => {
         <Image
           src="/7120263.png"
           alt="Next.js logo"
-          width={512}
-          height={256}
+          width={256}
+          height={128}
           priority
         />
       </motion.div>
+      <RsvpForm />
     </motion.section>
   );
 };

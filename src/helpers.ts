@@ -1,8 +1,8 @@
 import moment from 'moment-timezone';
 import get from 'lodash.get';
-import { XCustomDataType } from './types';
+import { RsvpFormDataType, XCustomDataType } from './types';
 
-const AllFields = [
+const AllVisitFields = [
   {
     id: 'source',
     label: 'Source',
@@ -105,7 +105,34 @@ const AllFields = [
   },
 ];
 
-export const getHtml = (data?: XCustomDataType) => {
+const AllRsvpFields = [
+  {
+    id: 'name',
+    label: 'Name',
+  },
+  {
+    id: 'email',
+    label: 'Email',
+  },
+  {
+    id: 'contact',
+    label: 'Contact',
+  },
+  {
+    id: 'pax',
+    label: 'No of people',
+  },
+  {
+    id: 'accNeeded',
+    label: 'Accomodation Needed?',
+  },
+  {
+    id: 'message',
+    label: 'Additional message',
+  },
+];
+
+export const getVisitHtml = (data?: XCustomDataType) => {
   return `
     <!doctype html>
       <html lang="en">
@@ -161,7 +188,7 @@ export const getHtml = (data?: XCustomDataType) => {
                         </td>
                         <td style="text-align: right">
                           <a
-                            href="https://www.google.co.in/maps/@${data?.ipData.latitude},${data?.ipData.longitude},14z"
+                            href="https://www.google.co.in/maps/@${data?.ipData?.latitude ?? ''},${data?.ipData?.longitude ?? ''},14z"
                             target="_blank"
                           >
                             <span
@@ -186,8 +213,113 @@ export const getHtml = (data?: XCustomDataType) => {
                 <td style="padding: 16px">
                   <table class="data" style="border-spacing: 16px">
                     <tbody>
-                      ${AllFields.map((field) => {
+                      ${AllVisitFields.map((field) => {
                         const value = get(data, field.path);
+                        return value
+                          ? `
+                            <tr id="${field.id}">
+                              <td style="padding-right: 16px; white-space: nowrap">
+                                <strong>${field.label}</strong>
+                              </td>
+                              <td>${value}</td>
+                            </tr>
+                          `
+                          : '';
+                      }).join('')}
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </body>
+      </html>
+  `;
+};
+
+export const getRsvpHtml = (data?: RsvpFormDataType) => {
+  return `
+    <!doctype html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap"
+            rel="stylesheet"
+          />
+          <title>Document</title>
+          <style>
+            table {
+              font-family: Nunito, 'open sans', 'helvetica neue', sans-serif;
+              color: #000;
+              border-spacing: unset;
+            }
+          </style>
+        </head>
+        <body>
+          <table
+            style="
+              background-color: #f6f6f6;
+              margin: 0 auto;
+              width: 600px;
+              border-radius: 8px;
+            "
+          >
+            <tbody>
+              <tr>
+                <td style="padding: 16px">
+                  <table style="width: 100%">
+                    <tbody>
+                      <tr>
+                        <td>
+                          <table>
+                            <tbody>
+                              <tr>
+                                <td>
+                                  <h2 style="margin: 8px 0px;">RSVP Request</h2>
+                                  <div>
+                                  ${moment(new Date().toISOString())
+                                    .tz('Asia/Kolkata')
+                                    .format('Do MMMM YYYY hh:mm a')}
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </td>
+                        <td style="text-align: right">
+                          <a
+                            href="https://www.google.co.in/maps"
+                            target="_blank"
+                          >
+                            <span
+                              style="
+                                background-image: url(https://ssl.gstatic.com/gb/images/p1_c9bc74a1.png);
+                                background-size: 64px 3100px;
+                                background-position: 0 -483px;
+                                display: inline-block;
+                                height: 64px;
+                                vertical-align: top;
+                                width: 64px;
+                              "
+                            ></span>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 16px">
+                  <table class="data" style="border-spacing: 16px">
+                    <tbody>
+                      ${AllRsvpFields.map((field) => {
+                        const value = get(data, field.id);
                         return value
                           ? `
                             <tr id="${field.id}">

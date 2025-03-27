@@ -25,7 +25,7 @@ const commonProps = {
   suppressHydrationWarning: true,
   initial,
   className:
-    'w-12 h-12 flex justify-center font-extrabold items-center rounded-xl bg-(--color-foreground) text-(--color-background)',
+    'w-12 h-12 flex justify-center items-center rounded-xl bg-(--foreground) text-(--background)',
   animate,
 };
 

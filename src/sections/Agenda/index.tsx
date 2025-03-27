@@ -147,7 +147,7 @@ const Agenda: React.FC = () => {
           )}
           <motion.button
             {...getAnimationProps(3)}
-            className="bg-(--color-foreground) text-(--color-background) p-2 rounded cursor-pointer font-semibold"
+            className="bg-(--foreground) text-(--background) p-2 rounded cursor-pointer font-semibold"
             onClick={() => {
               if (events.error) {
                 return;

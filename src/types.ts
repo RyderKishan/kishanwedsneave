@@ -102,3 +102,12 @@ export interface IpDataType {
   } | null;
   count: string;
 }
+
+export type RsvpFormDataType = {
+  name: string;
+  email: string;
+  contact: string;
+  pax: number;
+  accNeeded?: boolean;
+  message?: string;
+};
