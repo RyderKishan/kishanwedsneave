@@ -12,6 +12,7 @@ import { ReadonlyHeaders } from 'next/dist/server/web/spec-extension/adapters/he
 import { IpDataType, XCustomDataType } from '@/types';
 import Provider from '@/sections/Provider';
 import { IpDataMock } from '@/constants';
+import PhotoGallery from '@/sections/PhotoGallery';
 
 export const dynamic = 'force-dynamic';
 
@@ -49,6 +50,7 @@ export default async function Home() {
       <MarriageLocation />
       <ReceptionLocation />
       <HowToReach />
+      <PhotoGallery />
       <footer className=""></footer>
     </main>
   );

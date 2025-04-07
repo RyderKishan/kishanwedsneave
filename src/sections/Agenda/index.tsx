@@ -4,9 +4,7 @@ import React, { useRef } from 'react';
 import { saveAs } from 'file-saver';
 import { AnimationProps, motion, useInView } from 'motion/react';
 import { createEvents } from 'ics';
-
-const DELAY = 0.2;
-const DURATION = 0.15;
+import { DELAY, DURATION } from '@/constants';
 
 const getAnimationProps = (delay: number): AnimationProps => ({
   initial: { opacity: 0, y: 10 },

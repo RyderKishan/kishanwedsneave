@@ -1,5 +1,8 @@
 import { IpDataType } from './types';
 
+export const DELAY = 0.2;
+export const DURATION = 0.15;
+
 export const IpDataMock: IpDataType = {
   ip: '14.98.113.242',
   is_eu: false,

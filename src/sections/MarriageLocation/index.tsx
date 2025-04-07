@@ -2,9 +2,7 @@
 
 import React, { useRef } from 'react';
 import { AnimationProps, motion, useInView } from 'motion/react';
-
-const DELAY = 0.2;
-const DURATION = 0.15;
+import { DELAY, DURATION } from '@/constants';
 
 const PlacesToVisit = [
   {

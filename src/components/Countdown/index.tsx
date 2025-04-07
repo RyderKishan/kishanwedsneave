@@ -7,9 +7,7 @@ import {
   Variants,
 } from 'motion/react';
 import React, { useState, useEffect } from 'react';
-
-// const DELAY = 0.2;
-const DURATION = 0.3;
+import { DURATION } from '@/constants';
 
 const initial: TargetAndTransition = {
   opacity: 0,
