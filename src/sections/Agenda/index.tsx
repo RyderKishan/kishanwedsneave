@@ -127,7 +127,7 @@ const Agenda: React.FC = () => {
             </li>
           </motion.ul>
           {typeof window !== 'undefined' && (
-            <iframe
+            <motion.iframe
               suppressHydrationWarning
               className="m-auto max-w-screen-xl"
               src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FKolkata&showPrint=0&showCalendars=0&title=Kishan%20%26%20Neave%20Wedding&src=MzU5OWM0NGI5OTdlMWJhMWU0NWVlZjQ2ODQyZDJiMTIzMjRhNTFiYTNkYzEwOGZmYzVhNzQyNGRkNGFlODI2OUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23F09300"
@@ -141,10 +141,14 @@ const Agenda: React.FC = () => {
                   2 -
                 64
               }`}
-            ></iframe>
+            ></motion.iframe>
           )}
+          <motion.p {...getAnimationProps(3)} className="text-justify mt-4">
+            You can also add the events to your calendar by clicking + icon in
+            the bottom right corner of the calendar or the button below.
+          </motion.p>
           <motion.button
-            {...getAnimationProps(3)}
+            {...getAnimationProps(4)}
             className="bg-(--foreground) text-(--background) p-2 rounded cursor-pointer font-semibold"
             onClick={() => {
               if (events.error) {

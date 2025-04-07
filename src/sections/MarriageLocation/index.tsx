@@ -97,7 +97,7 @@ const MarriageLocation: React.FC = () => {
               allowFullScreen={false}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-            ></motion.iframe>
+            />
           )}
           <motion.h2
             {...getAnimationProps(5)}

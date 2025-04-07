@@ -13,6 +13,7 @@ import { IpDataType, XCustomDataType } from '@/types';
 import Provider from '@/sections/Provider';
 import { IpDataMock } from '@/constants';
 import PhotoGallery from '@/sections/PhotoGallery';
+import WhatToExpect from '@/sections/WhatToExpect';
 
 export const dynamic = 'force-dynamic';
 
@@ -51,7 +52,31 @@ export default async function Home() {
       <ReceptionLocation />
       <HowToReach />
       <PhotoGallery />
-      <footer className=""></footer>
+      <WhatToExpect />
+      <footer className="p-2 text-sm flex gap-2 items-center justify-center">
+        <div>
+          Photography:&nbsp;
+          <a
+            href="https://www.instagram.com/1_shotstudio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-(--foreground) hover:text-(--hover-foreground) font-semibold"
+          >
+            @1_shotstudio
+          </a>
+        </div>
+        <div>
+          DJ:&nbsp;
+          <a
+            href="https://www.instagram.com/dj_laxman_madurai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-(--foreground) hover:text-(--hover-foreground) font-semibold"
+          >
+            @dj_laxman_madurai
+          </a>
+        </div>
+      </footer>
     </main>
   );
 }

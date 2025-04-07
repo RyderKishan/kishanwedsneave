@@ -20,8 +20,10 @@ const Provider: React.FC<ProviderProps> = ({ xCustomData }) => {
     )
       return;
     if (
+      xCustomData.userAgent.ua.toLowerCase().includes('vercel') ||
       xCustomData.userAgent.ua.toLowerCase().includes('bot') ||
       xCustomData.userAgent.ua.toLowerCase().includes('headlesschrome') ||
+      xCustomData.userAgent.browser.name?.toLowerCase().includes('vercel') ||
       xCustomData.userAgent.browser.name?.toLowerCase().includes('selenium') ||
       xCustomData.userAgent.browser.name?.toLowerCase().includes('headless') ||
       xCustomData.userAgent.browser.name?.toLowerCase().includes('bot')
