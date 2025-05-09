@@ -51,7 +51,7 @@ export default async function Home() {
       <MarriageLocation />
       <ReceptionLocation />
       <HowToReach />
-      <PhotoGallery />
+      <PhotoGallery xCustomData={xCustomData} />
       <WhatToExpect />
       <footer className="p-2 text-sm flex gap-2 items-center justify-center">
         <div>

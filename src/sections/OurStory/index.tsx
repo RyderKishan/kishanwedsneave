@@ -88,13 +88,12 @@ const OurStory: React.FC = () => {
               </p>
               <p className="leading-6">
                 I always wanted the best. I search for it what ever it takes.
-                And thats how i met my love. I met her in a event and i was like
-                - &quot;She is the one&quot;. I took time to know her and she
-                took time to know me. Our journey started with a friendship and
-                then it turned into love. Our dreams were same and we both
-                wanted to be the best. I proposed her later after 2 years and
-                she accepted. Now we are getting married. I am so happy to have
-                her in my life.
+                And thats how i met my love. I met her in an event and i was
+                like - &quot;She is the one&quot;. I took time to know her and
+                she took time to know me. Our journey started with a friendship
+                and then it turned into love. Our dreams were same and we both
+                wanted to be the best. Now we are getting married. I am so happy
+                to have her in my life.
               </p>
               <p className="leading-6">
                 Neave is the best thing that happened to me. She is lovely. She
@@ -129,7 +128,7 @@ const OurStory: React.FC = () => {
               <div className="flex justify-center mt-8">
                 <Image
                   src="/profile1.jpg"
-                  alt="NEave"
+                  alt="Neave"
                   width={200}
                   height={200}
                   className="rounded-full profile-image"
