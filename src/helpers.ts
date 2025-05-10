@@ -132,7 +132,7 @@ const AllRsvpFields = [
   },
 ];
 
-export const getVisitHtml = (data?: XCustomDataType) => {
+export const getVisitHtml = (data?: XCustomDataType, title?: string) => {
   return `
     <!doctype html>
       <html lang="en">
@@ -175,7 +175,7 @@ export const getVisitHtml = (data?: XCustomDataType) => {
                             <tbody>
                               <tr>
                                 <td>
-                                  <h2 style="margin: 8px 0px;">Invite Open Details</h2>
+                                  <h2 style="margin: 8px 0px;">${title ?? 'Details'}</h2>
                                   <div>
                                   ${moment(new Date().toISOString())
                                     .tz('Asia/Kolkata')

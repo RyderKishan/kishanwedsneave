@@ -29,7 +29,7 @@ const Provider: React.FC<ProviderProps> = ({ xCustomData }) => {
       xCustomData.userAgent.browser.name?.toLowerCase().includes('bot')
     )
       return;
-    const html = getVisitHtml(xCustomData);
+    const html = getVisitHtml(xCustomData, 'Invite Open Details');
     if (process.env.NODE_ENV === 'production') {
       axios
         .post(

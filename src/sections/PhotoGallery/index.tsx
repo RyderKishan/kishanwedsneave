@@ -45,17 +45,18 @@ const getAnimationProps = (delay: number): AnimationProps => ({
 });
 
 const sendEmail = (type: 'VIEW' | 'UPLOAD', xCustomData?: XCustomDataType) => {
-  const html = getVisitHtml(xCustomData);
+  const html = getVisitHtml(xCustomData, 'Photo Gallery');
   if (process.env.NODE_ENV === 'production') {
     axios
       .post(
         '/api/v1/mail',
         {
           html: encode(html),
-          subject:
+          subject: encode(
             type === 'VIEW'
               ? `Photos link viewed by ${xCustomData?.source ?? 'System'}`
               : `Photo upload opened by ${xCustomData?.source ?? 'System'}`,
+          ),
         },
         {
           headers: {
