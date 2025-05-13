@@ -107,23 +107,10 @@ const OurStory: React.FC = () => {
               className="flex-1 flex flex-col-reverse gap-4 md:flex-col"
             >
               <p className="leading-6">
-                I am Neavetha from Srirangam. My schooling was in Trichy and i
-                did my B.E in SRM. I work in IT industry for the past{' '}
-                {Math.floor(
-                  moment
-                    .duration(
-                      moment(new Date()).diff(
-                        new Date('2021-09-12T18:30:00.000Z'),
-                      ),
-                    )
-                    .asYears(),
-                )}{' '}
-                years. I am a frontend developer and i love what i do.
-              </p>
-              <p className="leading-6">
-                I am a bit stubbon on my decisions. If i want it i want it for
-                sure is the phrase i go with. I am a bit emotional but i am
-                strong.
+                Hi, I’m Neave professional snack taster, part-time singer in the
+                kitchen, and now, full-time partner to kishan. I finally found
+                someone who laughs at my jokes (most of the time) and agreed to
+                marry me—so here we are! Can’t wait to party with all of you!
               </p>
               <div className="flex justify-center mt-8">
                 <Image
