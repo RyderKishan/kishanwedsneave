@@ -3,6 +3,12 @@
 import React, { useRef } from 'react';
 import { AnimationProps, motion, useInView } from 'motion/react';
 import { DELAY, DURATION } from '@/constants';
+import {
+  ExternalLinkIcon,
+  GitHubLogoIcon,
+  InstagramLogoIcon,
+  LinkedInLogoIcon,
+} from '@radix-ui/react-icons';
 
 const getAnimationProps = (delay: number): AnimationProps => ({
   initial: { opacity: 0, y: 10 },
@@ -54,6 +60,47 @@ const WhatToExpect: React.FC = () => {
           </motion.p>
           <motion.p {...getAnimationProps(6)} className="text-lg text-center">
             <strong>Kishan & Neave</strong>
+          </motion.p>
+          <motion.p className="flex gap-8 mt-10">
+            <a
+              href="https://www.instagram.com/ryder_kishan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-(--foreground) hover:text-(--hover-foreground) font-semibold flex gap-2 items-center"
+            >
+              <InstagramLogoIcon />
+              Instagram
+            </a>
+            &nbsp;
+            <a
+              href="https://www.balkishan.co.in?source=TWFycmlhZ2UgSW52aXRl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-(--foreground) hover:text-(--hover-foreground) font-semibold flex gap-2 items-center"
+            >
+              <ExternalLinkIcon />
+              Portfolio Site
+            </a>
+            &nbsp;
+            <a
+              href="https://github.com/RyderKishan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-(--foreground) hover:text-(--hover-foreground) font-semibold flex gap-2 items-center"
+            >
+              <GitHubLogoIcon />
+              Github
+            </a>
+            &nbsp;
+            <a
+              href="https://www.linkedin.com/in/balkishan-sembulingam/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-(--foreground) hover:text-(--hover-foreground) font-semibold flex gap-2 items-center"
+            >
+              <LinkedInLogoIcon />
+              LinkedIn
+            </a>
           </motion.p>
         </>
       )}

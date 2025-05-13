@@ -77,7 +77,15 @@ const OurStory: React.FC = () => {
                     .asYears(),
                 )}{' '}
                 years. My journey started with Mr.Cooper, then moved to
-                Freshworks and now working in Apollo.io.
+                Freshworks and now working in Apollo.io. Do visit my &nbsp;
+                <a
+                  href="https://www.balkishan.co.in?source=TWFycmlhZ2UgSW52aXRl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-(--foreground) hover:text-(--hover-foreground) font-semibold"
+                >
+                  Portfolio Site
+                </a>
               </p>
               <p className="leading-6">
                 I go crazy for cars. I love to travel and explore new places. I
