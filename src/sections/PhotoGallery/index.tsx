@@ -172,7 +172,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ xCustomData }) => {
                 priority
               />
             </motion.button>
-            <motion.button
+            {/* <motion.button
               className="bg-(--foreground) hover:bg-(--hover-foreground) text-(--background) p-2 rounded cursor-pointer font-semibold flex gap-2 items-center"
               onClick={() => {
                 sendEmail('UPLOAD', xCustomData);
@@ -190,7 +190,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ xCustomData }) => {
                 height={24}
                 priority
               />
-            </motion.button>
+            </motion.button> */}
           </motion.div>
         </>
       )}
