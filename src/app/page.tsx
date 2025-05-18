@@ -50,8 +50,8 @@ export default async function Home() {
       <Agenda />
       <MarriageLocation />
       <ReceptionLocation />
-      <HowToReach />
       <PhotoGallery xCustomData={xCustomData} />
+      <HowToReach />
       <WhatToExpect />
       <footer className="p-2 text-sm flex gap-2 items-center justify-center">
         <div>
