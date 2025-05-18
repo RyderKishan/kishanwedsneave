@@ -94,21 +94,6 @@ const OurStory: React.FC = () => {
                 a die hard fan of Max Verstappen and Redbull Racing. I follow
                 F1. Race weekends are my favourite.
               </p>
-              <p className="leading-6">
-                I always wanted the best. I search for it what ever it takes.
-                And thats how i met my love. I met her in an event and i was
-                like - &quot;She is the one&quot;. I took time to know her and
-                she took time to know me. Our journey started with a friendship
-                and then it turned into love. Our dreams were same and we both
-                wanted to be the best. Now we are getting married. I am so happy
-                to have her in my life.
-              </p>
-              <p className="leading-6">
-                Neave is the best thing that happened to me. She is lovely. She
-                is the one who understands me better than anyone. She is the one
-                who supports me in all my decisions. She is always there for me.
-                She is my strength and she is my everything. I love her so much.
-              </p>
             </motion.div>
             <motion.div
               {...getAnimationProps(2)}

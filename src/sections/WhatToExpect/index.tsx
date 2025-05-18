@@ -61,7 +61,7 @@ const WhatToExpect: React.FC = () => {
           <motion.p {...getAnimationProps(6)} className="text-lg text-center">
             <strong>Kishan & Neave</strong>
           </motion.p>
-          <motion.p className="flex gap-8 mt-10">
+          <motion.p className="flex gap-8 mt-10 flex-wrap items-center justify-center">
             <a
               href="https://www.instagram.com/ryder_kishan"
               target="_blank"
