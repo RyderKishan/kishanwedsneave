@@ -14,6 +14,7 @@ import Provider from '@/sections/Provider';
 import { IpDataMock } from '@/constants';
 import PhotoGallery from '@/sections/PhotoGallery';
 import WhatToExpect from '@/sections/WhatToExpect';
+import Menu from '@/sections/Menu';
 
 export const dynamic = 'force-dynamic';
 
@@ -49,6 +50,7 @@ export default async function Home() {
       <OurStory />
       <Agenda />
       <MarriageLocation />
+      <Menu />
       <ReceptionLocation />
       <PhotoGallery xCustomData={xCustomData} />
       <HowToReach />

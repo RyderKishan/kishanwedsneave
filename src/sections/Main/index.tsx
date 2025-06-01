@@ -20,7 +20,7 @@ const Main: React.FC = () => {
       className="min-h-dvh mx-auto max-w-screen-xl p-8 gap-8 flex flex-col justify-center items-center"
     >
       <AnimatedName text="Kishan & Neave" />
-      <Countdown targetDate={'2025-06-07T18:30:00.000Z'} />
+      <Countdown targetDate={'2025-06-08T02:30:00.000Z'} />
       <DateAndTime text="8th June 2025, Sivakasi" />
       <motion.div
         initial={{ opacity: 0 }}
